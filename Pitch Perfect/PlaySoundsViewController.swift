@@ -12,6 +12,7 @@ import AVFoundation
 class PlaySoundsViewController: UIViewController {
 
     var audioPlayer:AVAudioPlayer!
+    @IBOutlet weak var stopButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,10 +28,22 @@ class PlaySoundsViewController: UIViewController {
     }
 
     @IBAction func playSlowAudio(sender: AnyObject) {
-        // Play audio slooooowly here....
+        // Play audio slooooowly here.... //
         audioPlayer.stop()
         audioPlayer.rate = 0.5
         audioPlayer.play()
+
+    }
+
+    @IBAction func playFastAudio(sender: AnyObject) {
+        audioPlayer.stop()
+        audioPlayer.rate = 1.5
+        audioPlayer.play()
+
+    }
+
+    @IBAction func stopAudio(sender: AnyObject) {
+        audioPlayer.stop()
     }
 
     override func didReceiveMemoryWarning() {
