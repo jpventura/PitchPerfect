@@ -40,6 +40,9 @@ class PlaySoundsViewController: UIViewController {
 
     }
 
+    @IBAction func playChipmunkAudio(sender: AnyObject) {
+    }
+
     @IBAction func stopAudio(sender: AnyObject) {
         audioPlayer.stop()
     }
