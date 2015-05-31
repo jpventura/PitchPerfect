@@ -13,6 +13,7 @@
 		4B1B9FBE1B1A88A0004B493A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B1B9FBD1B1A88A0004B493A /* Images.xcassets */; };
 		4B1B9FC11B1A88A0004B493A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B1B9FBF1B1A88A0004B493A /* LaunchScreen.xib */; };
 		4B1B9FCD1B1A88A0004B493A /* Pitch_PerfectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1B9FCC1B1A88A0004B493A /* Pitch_PerfectTests.swift */; };
+		4B6706931B1B376E00A66F9D /* movie_quote.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4B6706921B1B376E00A66F9D /* movie_quote.mp3 */; };
 		4BFD6E891B1AC47C0038908F /* PlaySoundsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFD6E881B1AC47C0038908F /* PlaySoundsViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +38,7 @@
 		4B1B9FC61B1A88A0004B493A /* Pitch PerfectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Pitch PerfectTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B1B9FCB1B1A88A0004B493A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4B1B9FCC1B1A88A0004B493A /* Pitch_PerfectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pitch_PerfectTests.swift; sourceTree = "<group>"; };
+		4B6706921B1B376E00A66F9D /* movie_quote.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = movie_quote.mp3; sourceTree = "<group>"; };
 		4BFD6E881B1AC47C0038908F /* PlaySoundsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaySoundsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -61,6 +63,7 @@
 		4B1B9FA81B1A88A0004B493A = {
 			isa = PBXGroup;
 			children = (
+				4B6706921B1B376E00A66F9D /* movie_quote.mp3 */,
 				4B1B9FB31B1A88A0004B493A /* Pitch Perfect */,
 				4B1B9FC91B1A88A0004B493A /* Pitch PerfectTests */,
 				4B1B9FB21B1A88A0004B493A /* Products */,
@@ -197,6 +200,7 @@
 			files = (
 				4B1B9FBC1B1A88A0004B493A /* Main.storyboard in Resources */,
 				4B1B9FC11B1A88A0004B493A /* LaunchScreen.xib in Resources */,
+				4B6706931B1B376E00A66F9D /* movie_quote.mp3 in Resources */,
 				4B1B9FBE1B1A88A0004B493A /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

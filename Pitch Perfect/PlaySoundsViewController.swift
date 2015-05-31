@@ -13,7 +13,7 @@ class PlaySoundsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        var filePath = NSBundle.mainBundle().pathForResource("movie_quote", ofType: "mp3")
     }
 
     @IBAction func playSlowAudio(sender: AnyObject) {
