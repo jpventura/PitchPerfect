@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Record-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="Pitch_Perfect" customModuleProvider="target" sceneMemberID="viewController">
@@ -44,6 +44,7 @@
                                 </variation>
                                 <connections>
                                     <action selector="stopAudio:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="9RV-cF-OhL"/>
+                                    <segue destination="9yc-QS-ZPW" kind="show" id="KeR-Ry-dSS"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -82,7 +83,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" id="PoC-RJ-xKK"/>
+                    <navigationItem key="navigationItem" title="Record" id="PoC-RJ-xKK"/>
                     <connections>
                         <outlet property="recordButton" destination="1FX-vk-fZK" id="m78-48-sdN"/>
                         <outlet property="recordingInProgress" destination="8kk-QP-Ky3" id="Fiw-Db-cWw"/>
@@ -91,7 +92,24 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1212" y="357"/>
+            <point key="canvasLocation" x="1146" y="357"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="a4E-M7-MLs">
+            <objects>
+                <viewController id="9yc-QS-ZPW" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8BK-ti-q3Q"/>
+                        <viewControllerLayoutGuide type="bottom" id="mv5-Gh-tpy"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="676-tS-GZi">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="E8k-ay-jRU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2046" y="357"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="dIB-rY-B1S">
