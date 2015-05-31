@@ -34,30 +34,50 @@
                                 <color key="textColor" red="0.14509803921568626" green="0.28235294117647058" blue="0.43137254901960786" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oFe-mn-Tog">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" image="stopbutton">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="148" y="530" width="105" height="50"/>
+                                </variation>
+                                <connections>
+                                    <action selector="stopAudio:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="9RV-cF-OhL"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="8kk-QP-Ky3" secondAttribute="centerX" constant="-0.5" id="5u2-RL-0EZ"/>
                             <constraint firstAttribute="centerY" secondItem="1FX-vk-fZK" secondAttribute="centerY" id="IVM-yA-ta2"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="oFe-mn-Tog" secondAttribute="bottom" constant="20" id="TeL-TS-dSe"/>
+                            <constraint firstAttribute="centerX" secondItem="oFe-mn-Tog" secondAttribute="centerX" id="Vut-nT-Zd1"/>
                             <constraint firstItem="8kk-QP-Ky3" firstAttribute="top" secondItem="1FX-vk-fZK" secondAttribute="bottom" constant="13" id="aiR-hr-GNP"/>
                             <constraint firstAttribute="centerX" secondItem="1FX-vk-fZK" secondAttribute="centerX" id="tEo-jj-A8y"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="8kk-QP-Ky3"/>
+                                <exclude reference="oFe-mn-Tog"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="5u2-RL-0EZ"/>
                                 <exclude reference="aiR-hr-GNP"/>
+                                <exclude reference="Vut-nT-Zd1"/>
+                                <exclude reference="TeL-TS-dSe"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="8kk-QP-Ky3"/>
+                                <include reference="oFe-mn-Tog"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="5u2-RL-0EZ"/>
                                 <include reference="aiR-hr-GNP"/>
+                                <include reference="Vut-nT-Zd1"/>
+                                <include reference="TeL-TS-dSe"/>
                             </mask>
                         </variation>
                     </view>
@@ -71,5 +91,6 @@
     </scenes>
     <resources>
         <image name="microfone" width="100" height="100"/>
+        <image name="stopbutton" width="50" height="50"/>
     </resources>
 </document>
