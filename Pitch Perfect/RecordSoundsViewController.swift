@@ -12,8 +12,10 @@ import AVFoundation
 class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
 
     @IBOutlet weak var recordingInProgress: UILabel!
+    @IBOutlet weak var pauseButton: UIButton!
     @IBOutlet weak var stopButton: UIButton!
     @IBOutlet weak var recordButton: UIButton!
+    @IBOutlet weak var playButton: UIButton!
 
     var audioRecorder:AVAudioRecorder!
     var recordedAudio:RecordedAudio!
@@ -30,12 +32,24 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
 
     override func viewWillAppear(animated: Bool) {
         // Hide the stop button
+        pauseButton.hidden = true
         stopButton.hidden = true
+        playButton.hidden = true
         recordButton.enabled = true
     }
 
     @IBAction func recordAudio(sender: AnyObject) {
+        recordingInProgress.text = "recording"
+
+        pauseButton.enabled = true
+        pauseButton.hidden = false
+
+        stopButton.enabled = true
         stopButton.hidden = false
+
+        playButton.enabled = false
+        playButton.hidden = false
+
         recordingInProgress.hidden = false
         recordButton.enabled = false
 
@@ -82,11 +96,25 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         }
     }
 
+    @IBAction func pauseAudio(sender: AnyObject) {
+        recordingInProgress.text = "paused"
+        pauseButton.enabled = false
+        playButton.enabled = true
+        audioRecorder.pause()
+    }
+
     @IBAction func stopAudio(sender: AnyObject) {
         recordingInProgress.hidden = true
         audioRecorder.stop()
         var audioSession = AVAudioSession.sharedInstance()
         audioSession.setActive(false, error: nil)
+    }
+
+    @IBAction func restartToRecordAudio(sender: AnyObject) {
+        recordingInProgress.text = "recording"
+        pauseButton.enabled = true
+        playButton.enabled = false
+        audioRecorder.record()
     }
 
 }
