@@ -20,6 +20,7 @@ class PlaySoundsViewController: UIViewController {
         if var filePath = NSBundle.mainBundle().pathForResource("movie_quote", ofType: "mp3") {
             var filePathUrl = NSURL.fileURLWithPath(filePath)
             audioPlayer = AVAudioPlayer(contentsOfURL: filePathUrl, error: nil)
+            audioPlayer.enableRate = true
         } else {
             println("the filePath is empty")
         }
@@ -27,6 +28,8 @@ class PlaySoundsViewController: UIViewController {
 
     @IBAction func playSlowAudio(sender: AnyObject) {
         // Play audio slooooowly here....
+        audioPlayer.stop()
+        audioPlayer.rate = 0.5
         audioPlayer.play()
     }
 
