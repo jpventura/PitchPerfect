@@ -132,11 +132,25 @@
                                     <action selector="stopAudio:" destination="9yc-QS-ZPW" eventType="touchUpInside" id="EtM-Il-YWD"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rwv-Ca-Y68">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" image="chipmunk">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="46" y="264" width="101" height="101"/>
+                                </variation>
+                                <connections>
+                                    <action selector="playChipmunkAudio:" destination="9yc-QS-ZPW" eventType="touchUpInside" id="e72-0m-rBt"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="AoW-Qg-FJz" secondAttribute="centerX" id="4nS-We-F3c"/>
                             <constraint firstItem="kID-2f-csd" firstAttribute="top" secondItem="8BK-ti-q3Q" secondAttribute="bottom" constant="50" id="BNU-LT-c2u"/>
+                            <constraint firstItem="Rwv-Ca-Y68" firstAttribute="leading" secondItem="676-tS-GZi" secondAttribute="leadingMargin" constant="30" id="Eno-lP-vVt"/>
+                            <constraint firstItem="Rwv-Ca-Y68" firstAttribute="top" secondItem="kID-2f-csd" secondAttribute="bottom" constant="50" id="Sck-64-W7h"/>
                             <constraint firstAttribute="trailingMargin" secondItem="zrl-FD-5HL" secondAttribute="trailing" constant="30" id="cgP-4V-rVB"/>
                             <constraint firstItem="kID-2f-csd" firstAttribute="leading" secondItem="676-tS-GZi" secondAttribute="leadingMargin" constant="30" id="eJz-Kd-ble"/>
                             <constraint firstItem="zrl-FD-5HL" firstAttribute="top" secondItem="8BK-ti-q3Q" secondAttribute="bottom" constant="50" id="jdA-nf-q1A"/>
@@ -146,13 +160,16 @@
                             <mask key="subviews">
                                 <exclude reference="zrl-FD-5HL"/>
                                 <exclude reference="AoW-Qg-FJz"/>
+                                <exclude reference="Rwv-Ca-Y68"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="4nS-We-F3c"/>
-                                <exclude reference="cgP-4V-rVB"/>
-                                <exclude reference="jdA-nf-q1A"/>
                                 <exclude reference="BNU-LT-c2u"/>
                                 <exclude reference="eJz-Kd-ble"/>
+                                <exclude reference="Eno-lP-vVt"/>
+                                <exclude reference="Sck-64-W7h"/>
+                                <exclude reference="cgP-4V-rVB"/>
+                                <exclude reference="jdA-nf-q1A"/>
+                                <exclude reference="4nS-We-F3c"/>
                                 <exclude reference="vWe-ix-kgl"/>
                             </mask>
                         </variation>
@@ -160,13 +177,16 @@
                             <mask key="subviews">
                                 <include reference="zrl-FD-5HL"/>
                                 <include reference="AoW-Qg-FJz"/>
+                                <include reference="Rwv-Ca-Y68"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="4nS-We-F3c"/>
-                                <include reference="cgP-4V-rVB"/>
-                                <include reference="jdA-nf-q1A"/>
                                 <include reference="BNU-LT-c2u"/>
                                 <include reference="eJz-Kd-ble"/>
+                                <include reference="Eno-lP-vVt"/>
+                                <include reference="Sck-64-W7h"/>
+                                <include reference="cgP-4V-rVB"/>
+                                <include reference="jdA-nf-q1A"/>
+                                <include reference="4nS-We-F3c"/>
                                 <include reference="vWe-ix-kgl"/>
                             </mask>
                         </variation>
@@ -199,6 +219,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="chipmunk" width="100" height="100"/>
         <image name="microfone" width="100" height="100"/>
         <image name="rabbit" width="100" height="100"/>
         <image name="snail" width="100" height="100"/>
