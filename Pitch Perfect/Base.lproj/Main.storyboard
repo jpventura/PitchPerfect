@@ -2,13 +2,14 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="N5l-a8-guj">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Record-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="Pitch_Perfect" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="RecordSoundsViewController" customModule="Pitch_Perfect" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -147,11 +148,11 @@
                                 <exclude reference="AoW-Qg-FJz"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="BNU-LT-c2u"/>
-                                <exclude reference="eJz-Kd-ble"/>
+                                <exclude reference="4nS-We-F3c"/>
                                 <exclude reference="cgP-4V-rVB"/>
                                 <exclude reference="jdA-nf-q1A"/>
-                                <exclude reference="4nS-We-F3c"/>
+                                <exclude reference="BNU-LT-c2u"/>
+                                <exclude reference="eJz-Kd-ble"/>
                                 <exclude reference="vWe-ix-kgl"/>
                             </mask>
                         </variation>
@@ -161,11 +162,11 @@
                                 <include reference="AoW-Qg-FJz"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="BNU-LT-c2u"/>
-                                <include reference="eJz-Kd-ble"/>
+                                <include reference="4nS-We-F3c"/>
                                 <include reference="cgP-4V-rVB"/>
                                 <include reference="jdA-nf-q1A"/>
-                                <include reference="4nS-We-F3c"/>
+                                <include reference="BNU-LT-c2u"/>
+                                <include reference="eJz-Kd-ble"/>
                                 <include reference="vWe-ix-kgl"/>
                             </mask>
                         </variation>
