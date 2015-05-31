@@ -49,6 +49,10 @@ class PlaySoundsViewController: UIViewController {
         playAudioWithVariablePitch(1000)
     }
 
+    @IBAction func playDarthVader(sender: AnyObject) {
+        playAudioWithVariablePitch(-1000)
+    }
+
     func playAudioWithVariablePitch(pitch: Float){
         audioPlayer.stop()
         audioEngine.stop()
