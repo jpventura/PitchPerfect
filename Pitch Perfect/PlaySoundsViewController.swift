@@ -16,6 +16,10 @@ class PlaySoundsViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+    @IBAction func playSlowAudio(sender: AnyObject) {
+        // Play audio slooooowly here....
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
