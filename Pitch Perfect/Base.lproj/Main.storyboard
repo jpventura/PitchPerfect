@@ -242,6 +242,10 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="chipmunkButton" destination="Rwv-Ca-Y68" id="BNq-ai-4ZQ"/>
+                        <outlet property="darthVaderButton" destination="yb3-1b-7Yv" id="5zP-Y0-SOA"/>
+                        <outlet property="fastButton" destination="zrl-FD-5HL" id="bba-LX-z1c"/>
+                        <outlet property="slowButton" destination="kID-2f-csd" id="t0V-Vq-Erb"/>
                         <outlet property="stopButton" destination="AoW-Qg-FJz" id="J8V-BW-sEa"/>
                     </connections>
                 </viewController>
