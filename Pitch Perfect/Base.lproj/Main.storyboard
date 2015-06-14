@@ -137,9 +137,6 @@
                                 <state key="normal" image="chipmunk">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="46" y="264" width="101" height="101"/>
-                                </variation>
                                 <connections>
                                     <action selector="playChipmunkAudio:" destination="9yc-QS-ZPW" eventType="touchUpInside" id="e72-0m-rBt"/>
                                 </connections>
@@ -175,15 +172,15 @@
                                 <exclude reference="yb3-1b-7Yv"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="BNU-LT-c2u"/>
-                                <exclude reference="eJz-Kd-ble"/>
+                                <exclude reference="4nS-We-F3c"/>
                                 <exclude reference="Eno-lP-vVt"/>
                                 <exclude reference="Sck-64-W7h"/>
-                                <exclude reference="cgP-4V-rVB"/>
-                                <exclude reference="jdA-nf-q1A"/>
                                 <exclude reference="JWB-sp-wiT"/>
                                 <exclude reference="hvS-YB-AGN"/>
-                                <exclude reference="4nS-We-F3c"/>
+                                <exclude reference="cgP-4V-rVB"/>
+                                <exclude reference="jdA-nf-q1A"/>
+                                <exclude reference="BNU-LT-c2u"/>
+                                <exclude reference="eJz-Kd-ble"/>
                                 <exclude reference="vWe-ix-kgl"/>
                             </mask>
                         </variation>
@@ -195,15 +192,15 @@
                                 <include reference="yb3-1b-7Yv"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="BNU-LT-c2u"/>
-                                <include reference="eJz-Kd-ble"/>
+                                <include reference="4nS-We-F3c"/>
                                 <include reference="Eno-lP-vVt"/>
                                 <include reference="Sck-64-W7h"/>
-                                <include reference="cgP-4V-rVB"/>
-                                <include reference="jdA-nf-q1A"/>
                                 <include reference="JWB-sp-wiT"/>
                                 <include reference="hvS-YB-AGN"/>
-                                <include reference="4nS-We-F3c"/>
+                                <include reference="cgP-4V-rVB"/>
+                                <include reference="jdA-nf-q1A"/>
+                                <include reference="BNU-LT-c2u"/>
+                                <include reference="eJz-Kd-ble"/>
                                 <include reference="vWe-ix-kgl"/>
                             </mask>
                         </variation>
