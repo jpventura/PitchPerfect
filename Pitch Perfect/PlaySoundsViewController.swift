@@ -12,6 +12,7 @@ import AVFoundation
 class PlaySoundsViewController: UIViewController {
 
     var audioPlayer:AVAudioPlayer!
+    var echoPlayer:AVAudioPlayer!
     var receivedAudio:RecordedAudio!
     var audioEngine:AVAudioEngine!
     var audioFile:AVAudioFile!
@@ -23,6 +24,7 @@ class PlaySoundsViewController: UIViewController {
 
         audioPlayer = AVAudioPlayer(contentsOfURL: receivedAudio.filePathUrl, error: nil)
         audioPlayer.enableRate = true
+        echoPlayer = AVAudioPlayer(contentsOfURL: receivedAudio.filePathUrl, error: nil)
         audioEngine = AVAudioEngine()
         audioFile = AVAudioFile(forReading: receivedAudio.filePathUrl, error: nil)
     }
@@ -66,6 +68,38 @@ class PlaySoundsViewController: UIViewController {
         audioPlayerNode.play()
     }
 
+    
+    @IBAction func playEcho(sender: AnyObject) {
+        self.stopAudio()
+        audioPlayer.play()
+
+        let delay:NSTimeInterval = 0.200
+        var playtime:NSTimeInterval
+        playtime = echoPlayer.deviceCurrentTime + delay
+        echoPlayer.volume = 0.3;
+        echoPlayer.playAtTime(playtime)
+    }
+
+    @IBAction func playReverb(sender: AnyObject) {
+        self.stopAudio()
+
+        var audioPlayerNode = AVAudioPlayerNode()
+        audioEngine.attachNode(audioPlayerNode)
+
+        var changeReverbEffect = AVAudioUnitReverb()
+        changeReverbEffect.loadFactoryPreset(.Cathedral)
+        changeReverbEffect.wetDryMix = 61.80339887498949
+        audioEngine.attachNode(changeReverbEffect)
+
+        audioEngine.connect(audioPlayerNode, to: changeReverbEffect, format: nil)
+        audioEngine.connect(changeReverbEffect, to: audioEngine.outputNode, format: nil)
+
+        audioPlayerNode.scheduleFile(audioFile, atTime: nil, completionHandler: nil)
+        audioEngine.startAndReturnError(nil)
+
+        audioPlayerNode.play()
+    }
+
     @IBAction func stopAudio(sender: AnyObject) {
         self.stopAudio()
     }
@@ -75,6 +109,8 @@ class PlaySoundsViewController: UIViewController {
         audioEngine.reset()
         audioPlayer.stop()
         audioPlayer.currentTime = 0
+        echoPlayer.stop()
+        echoPlayer.currentTime = 0;
     }
 
     override func didReceiveMemoryWarning() {
