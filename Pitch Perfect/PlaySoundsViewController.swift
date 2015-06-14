@@ -28,16 +28,14 @@ class PlaySoundsViewController: UIViewController {
     }
 
     @IBAction func playSlowAudio(sender: AnyObject) {
-        audioPlayer.stop()
+        self.stopAudio()
         audioPlayer.rate = 0.5
-        audioPlayer.currentTime = 0.0
         audioPlayer.play()
     }
 
     @IBAction func playFastAudio(sender: AnyObject) {
-        audioPlayer.stop()
+        self.stopAudio()
         audioPlayer.rate = 1.5
-        audioPlayer.currentTime = 0.0
         audioPlayer.play()
     }
 
@@ -50,9 +48,7 @@ class PlaySoundsViewController: UIViewController {
     }
 
     func playAudioWithVariablePitch(pitch: Float){
-        audioPlayer.stop()
-        audioEngine.stop()
-        audioEngine.reset()
+        self.stopAudio()
         
         var audioPlayerNode = AVAudioPlayerNode()
         audioEngine.attachNode(audioPlayerNode)
@@ -71,7 +67,14 @@ class PlaySoundsViewController: UIViewController {
     }
 
     @IBAction func stopAudio(sender: AnyObject) {
+        self.stopAudio()
+    }
+
+    func stopAudio() {
+        audioEngine.stop()
+        audioEngine.reset()
         audioPlayer.stop()
+        audioPlayer.currentTime = 0
     }
 
     override func didReceiveMemoryWarning() {
