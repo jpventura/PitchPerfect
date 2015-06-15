@@ -29,29 +29,24 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     }
 
     override func viewWillAppear(animated: Bool) {
-        pauseButton.hidden = true
-        stopButton.hidden = true
-        playButton.hidden = true
+        setButtonsHidden(true)
         recordButton.enabled = true
     }
 
     @IBAction func recordAudio(sender: AnyObject) {
         recordingInProgress.text = "recording"
 
+        // Hide recording flow buttons, disable microphone button, and
+        // (re)enable all other buttons except resume recording.
+        setButtonsHidden(false)
         pauseButton.enabled = true
-        pauseButton.hidden = false
-
         stopButton.enabled = true
-        stopButton.hidden = false
-
         playButton.enabled = false
-        playButton.hidden = false
-
         recordingInProgress.hidden = false
         recordButton.enabled = false
 
+        // Record the user's voice
         let dirPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as! String
-
         let currentDateTime = NSDate()
         let formatter = NSDateFormatter()
         formatter.dateFormat = "ddMMyyyy-HHmmss"
@@ -60,9 +55,11 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         let filePath = NSURL.fileURLWithPathComponents(pathArray)
         println(filePath)
 
+        // Setup audio session
         var session = AVAudioSession.sharedInstance()
         session.setCategory(AVAudioSessionCategoryPlayAndRecord, error: nil)
 
+        // Initialize and prepare the recorder
         audioRecorder = AVAudioRecorder(URL: filePath, settings: nil, error: nil)
         audioRecorder.delegate = self
         audioRecorder.meteringEnabled = true
@@ -110,6 +107,12 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         pauseButton.enabled = true
         playButton.enabled = false
         audioRecorder.record()
+    }
+
+    func setButtonsHidden(hidden: Bool) {
+        pauseButton.hidden = hidden
+        stopButton.hidden = hidden
+        playButton.hidden = hidden
     }
 
 }

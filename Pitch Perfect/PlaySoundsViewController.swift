@@ -21,6 +21,8 @@ class PlaySoundsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        // Do any additional setup after loading the view.
         audioPlayer = AVAudioPlayer(contentsOfURL: receivedAudio.filePathUrl, error: nil)
         audioPlayer.enableRate = true
         echoPlayer = AVAudioPlayer(contentsOfURL: receivedAudio.filePathUrl, error: nil)
@@ -29,15 +31,11 @@ class PlaySoundsViewController: UIViewController {
     }
 
     @IBAction func playSlowAudio(sender: AnyObject) {
-        self.stopAudio()
-        audioPlayer.rate = 0.5
-        audioPlayer.play()
+        playAudioWithVariableRate(0.5)
     }
 
     @IBAction func playFastAudio(sender: AnyObject) {
-        self.stopAudio()
-        audioPlayer.rate = 1.5
-        audioPlayer.play()
+        playAudioWithVariableRate(1.5)
     }
 
     @IBAction func playChipmunkAudio(sender: AnyObject) {
@@ -48,41 +46,63 @@ class PlaySoundsViewController: UIViewController {
         playAudioWithVariablePitch(-1000)
     }
 
+    func playAudioWithVariableRate(rate: Float) {
+        self.stopAudio()
+
+        // Play audio file with variable rate
+        audioPlayer.rate = rate
+        audioPlayer.play()
+    }
+
     func playAudioWithVariablePitch(pitch: Float){
         self.stopAudio()
         var audioPlayerNode = AVAudioPlayerNode()
         audioEngine.attachNode(audioPlayerNode)
+
+        // Setting the variable pitch effect
         var changePitchEffect = AVAudioUnitTimePitch()
         changePitchEffect.pitch = pitch
         audioEngine.attachNode(changePitchEffect)
         audioEngine.connect(audioPlayerNode, to: changePitchEffect, format: nil)
         audioEngine.connect(changePitchEffect, to: audioEngine.outputNode, format: nil)
+
+        // Play the audio file
         audioPlayerNode.scheduleFile(audioFile, atTime: nil, completionHandler: nil)
         audioEngine.startAndReturnError(nil)
         audioPlayerNode.play()
     }
-
     
     @IBAction func playEcho(sender: AnyObject) {
         self.stopAudio()
+
+        // Play first the audio file
         audioPlayer.play()
+
+        // Create the echo sound effect delaying the second play and decreasing its volume
         let delay:NSTimeInterval = 0.200
         var playtime:NSTimeInterval
         playtime = echoPlayer.deviceCurrentTime + delay
         echoPlayer.volume = 0.3;
+
+        // Play second audio file
         echoPlayer.playAtTime(playtime)
     }
 
     @IBAction func playReverb(sender: AnyObject) {
         stopAudio()
+
         var audioPlayerNode = AVAudioPlayerNode()
         audioEngine.attachNode(audioPlayerNode)
+
+        // Setting the reverb effect
         var changeReverbEffect = AVAudioUnitReverb()
         changeReverbEffect.loadFactoryPreset(.Cathedral)
         changeReverbEffect.wetDryMix = 61.80339887498949
         audioEngine.attachNode(changeReverbEffect)
         audioEngine.connect(audioPlayerNode, to: changeReverbEffect, format: nil)
         audioEngine.connect(changeReverbEffect, to: audioEngine.outputNode, format: nil)
+
+        // Play the audio file
         audioPlayerNode.scheduleFile(audioFile, atTime: nil, completionHandler: nil)
         audioEngine.startAndReturnError(nil)
         audioPlayerNode.play()
