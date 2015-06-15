@@ -21,7 +21,6 @@ class PlaySoundsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         audioPlayer = AVAudioPlayer(contentsOfURL: receivedAudio.filePathUrl, error: nil)
         audioPlayer.enableRate = true
         echoPlayer = AVAudioPlayer(contentsOfURL: receivedAudio.filePathUrl, error: nil)
@@ -51,20 +50,15 @@ class PlaySoundsViewController: UIViewController {
 
     func playAudioWithVariablePitch(pitch: Float){
         self.stopAudio()
-        
         var audioPlayerNode = AVAudioPlayerNode()
         audioEngine.attachNode(audioPlayerNode)
-        
         var changePitchEffect = AVAudioUnitTimePitch()
         changePitchEffect.pitch = pitch
         audioEngine.attachNode(changePitchEffect)
-        
         audioEngine.connect(audioPlayerNode, to: changePitchEffect, format: nil)
         audioEngine.connect(changePitchEffect, to: audioEngine.outputNode, format: nil)
-        
         audioPlayerNode.scheduleFile(audioFile, atTime: nil, completionHandler: nil)
         audioEngine.startAndReturnError(nil)
-        
         audioPlayerNode.play()
     }
 
@@ -72,7 +66,6 @@ class PlaySoundsViewController: UIViewController {
     @IBAction func playEcho(sender: AnyObject) {
         self.stopAudio()
         audioPlayer.play()
-
         let delay:NSTimeInterval = 0.200
         var playtime:NSTimeInterval
         playtime = echoPlayer.deviceCurrentTime + delay
@@ -81,22 +74,17 @@ class PlaySoundsViewController: UIViewController {
     }
 
     @IBAction func playReverb(sender: AnyObject) {
-        self.stopAudio()
-
+        stopAudio()
         var audioPlayerNode = AVAudioPlayerNode()
         audioEngine.attachNode(audioPlayerNode)
-
         var changeReverbEffect = AVAudioUnitReverb()
         changeReverbEffect.loadFactoryPreset(.Cathedral)
         changeReverbEffect.wetDryMix = 61.80339887498949
         audioEngine.attachNode(changeReverbEffect)
-
         audioEngine.connect(audioPlayerNode, to: changeReverbEffect, format: nil)
         audioEngine.connect(changeReverbEffect, to: audioEngine.outputNode, format: nil)
-
         audioPlayerNode.scheduleFile(audioFile, atTime: nil, completionHandler: nil)
         audioEngine.startAndReturnError(nil)
-
         audioPlayerNode.play()
     }
 
