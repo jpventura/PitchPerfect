@@ -22,16 +22,13 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     override func viewWillAppear(animated: Bool) {
-        // Hide the stop button
         pauseButton.hidden = true
         stopButton.hidden = true
         playButton.hidden = true
@@ -53,7 +50,6 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         recordingInProgress.hidden = false
         recordButton.enabled = false
 
-        // TODO: Record the user's voice
         let dirPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as! String
 
         let currentDateTime = NSDate()
@@ -64,10 +60,9 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         let filePath = NSURL.fileURLWithPathComponents(pathArray)
         println(filePath)
 
-        // Setup audio session
         var session = AVAudioSession.sharedInstance()
         session.setCategory(AVAudioSessionCategoryPlayAndRecord, error: nil)
-        // Initialize and prepare the recorder
+
         audioRecorder = AVAudioRecorder(URL: filePath, settings: nil, error: nil)
         audioRecorder.delegate = self
         audioRecorder.meteringEnabled = true
